@@ -43,7 +43,7 @@ function install_kustomize {
     if [[ "${url}" =~ .tar.gz$ ]]; then
       curl -s -S -L ${url} | tar -xz -C /usr/bin
     else
-      curl -s -S -L ${url} -o /usr/bin/kustomize"
+      curl -s -S -L ${url} -o /usr/bin/kustomize
     fi
     if [ "${?}" -ne 0 ]; then
         echo "Failed to download kustomize v${kustomize_version}."
