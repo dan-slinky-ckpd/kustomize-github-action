@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 function parse_inputs {
     # required inputs
@@ -33,7 +33,7 @@ function parse_inputs {
 
 function install_kustomize {
 
-    url=$(curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases |\
+    url=$(curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases?per_page=100 |\
       grep browser_download |\
       grep download/ | grep ${kustomize_version} |\
       grep -m 1 linux |\
@@ -58,7 +58,6 @@ function install_kustomize {
         exit 1
     fi
     echo "Successfully added execute privilege to kustomize."
-    ls -l /usr/bin
 
 }
 
