@@ -26,7 +26,7 @@ function parse_inputs {
     fi
 
     enable_alpha_plugins=""
-   if [ "${INPUT_ENABLE_ALPHA_PLUGINS}" == "1" ] || [ "${INPUT_ENABLE_ALPHA_PLUGINS}" == "true" ]; then
+    if [ "${INPUT_ENABLE_ALPHA_PLUGINS}" == "1" ] || [ "${INPUT_ENABLE_ALPHA_PLUGINS}" == "true" ]; then
        enable_alpha_plugins="--enable_alpha_plugins"
     fi
 }
@@ -46,7 +46,7 @@ function install_kustomize {
     fi
 
     echo "Downloading kustomize v${kustomize_version}"
-    curl -s -S -L ${url} "${output_command}"
+    curl -s -S -L ${url} ${output_command}
     if [ "${?}" -ne 0 ]; then
         echo "Failed to download kustomize v${kustomize_version}."
         exit 1
