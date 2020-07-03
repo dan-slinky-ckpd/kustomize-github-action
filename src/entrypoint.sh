@@ -42,7 +42,7 @@ function install_kustomize {
     if [ "${url##*.}" = ".tar.gz" ]; then
       output_command="| tar -xz -C /usr/bin"
     else
-      output_command = "-o /usr/bin/kustomize"
+      output_command="-o /usr/bin/kustomize"
     fi
 
     echo "Downloading kustomize v${kustomize_version}"
