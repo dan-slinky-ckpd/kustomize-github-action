@@ -36,7 +36,7 @@ function install_kustomize {
     url=$(curl -s https://api.github.com/repos/kubernetes-sigs/kustomize/releases?per_page=100 |\
       grep browser_download |\
       grep download/ | grep ${kustomize_version} |\
-      grep -v -E '(pluginator|api)'
+      grep -v -E '(pluginator|api)' |\
       grep -m 1 linux |\
       cut -d '"' -f 4)
 
