@@ -39,14 +39,12 @@ function install_kustomize {
       grep -m 1 linux |\
       cut -d '"' -f 4)
 
-    if [[ "${url}" =~ ".tar.gz" ]]; then
-      output_command="| tar -xz -C /usr/bin"
-    else
-      output_command="-o /usr/bin/kustomize"
-    fi
-
     echo "Downloading kustomize v${kustomize_version}"
-    curl -s -S -L ${url} ${output_command}
+    if [[ "${url}" =~ \.tar\.gz$ ]]; then
+      curl -s -S -L ${url} | tar -xz -C /usr/bin"
+    else
+      curl -s -S -L ${url} -o /usr/bin/kustomize"
+    fi
     if [ "${?}" -ne 0 ]; then
         echo "Failed to download kustomize v${kustomize_version}."
         exit 1
