@@ -39,7 +39,7 @@ function install_kustomize {
       grep -m 1 linux |\
       cut -d '"' -f 4)
 
-    if [ "${url##*.}" = ".tar.gz" ]; then
+    if [[ "${url}" =~ ".tar.gz" ]]; then
       output_command="| tar -xz -C /usr/bin"
     else
       output_command="-o /usr/bin/kustomize"
