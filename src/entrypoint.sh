@@ -40,8 +40,8 @@ function install_kustomize {
       cut -d '"' -f 4)
 
     echo "Downloading kustomize v${kustomize_version}"
-    if [[ "${url}" =~ .tar.gz ]]; then
-      curl -s -S -L ${url} | tar -xz -C /usr/bin"
+    if [[ "${url}" =~ .tar.gz$ ]]; then
+      curl -s -S -L ${url} | tar -xz -C /usr/bin
     else
       curl -s -S -L ${url} -o /usr/bin/kustomize"
     fi
